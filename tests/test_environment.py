@@ -24,3 +24,8 @@ def test_env_is_staging(app_config):
 def test_skipped():
     pass
 
+
+@mark.wip(reason="This test is WIP, not for production")
+def test_wip():
+    pass
+
