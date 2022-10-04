@@ -1,6 +1,8 @@
 from pytest import fixture
 from selenium import webdriver
 from config import Config
+import json
+
 
 
 @fixture(scope='session')  # session, function, class etc
@@ -44,3 +46,14 @@ def many_browsers(request):
     yield dr
     dr.quit()
 
+
+def load_test_data(path):
+    with open(path) as data_file:
+        data = json.load(data_file)
+        return data
+
+
+@fixture(params=load_test_data("test_data.json"))
+def tv_brand(request):
+    data = request.param
+    return data

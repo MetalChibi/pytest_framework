@@ -1,12 +1,11 @@
 from pytest import mark
 
 
-@mark.skip
-@mark.parametrize('tv_brand', [
-    ('LG'),
-    ('Samsung'),
-    ('Sony')
-])
+# @mark.parametrize('tv_brand', [
+#     ('LG'),
+#     ('Samsung'),
+#     ('Sony')
+# ])
 # iterables: use a list
 # inside a list: tuples (for multiple pieces of information???)
 def test_tv_turns_on(tv_brand):
