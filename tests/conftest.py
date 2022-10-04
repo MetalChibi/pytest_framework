@@ -48,12 +48,14 @@ def many_browsers(request):
 
 
 def load_test_data(path):
-    with open(path) as data_file:
-        data = json.load(data_file)
-        return data
+    # with open(path) as data_file:
+    #     data = json.load(data_file)
+    #     return data
+    return json.load(open(path))
+
+# @fixture(params=load_test_data("test_data.json"))
 
 
-@fixture(params=load_test_data("test_data.json"))
+@fixture(params=json.load(open("./tests/test_data.json")))
 def tv_brand(request):
-    data = request.param
-    return data
+    return request.param
