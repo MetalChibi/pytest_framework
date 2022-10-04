@@ -2,6 +2,7 @@ from pytest import fixture
 from selenium import webdriver
 from config import Config
 
+
 @fixture(scope='session')  # session, function, class etc
 # session: all tests in one browser
 # function: one browser per function/test
@@ -31,3 +32,15 @@ def env(request):
 def app_config(env):
     cfg = Config(env)
     return cfg
+
+
+@fixture(params=[
+    webdriver.Chrome,
+    webdriver.Firefox
+])
+def many_browsers(request):
+    driver = request.param
+    dr = driver()
+    yield dr
+    dr.quit()
+
