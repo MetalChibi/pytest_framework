@@ -1,5 +1,9 @@
 import time
 
+# pytest tests\test_parallel.py -s -v -n8
+# or
+# pytest tests\test_parallel.py -s -v -nauto
+
 
 def test_parallel_1():
     time.sleep(5)
