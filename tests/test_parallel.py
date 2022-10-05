@@ -1,5 +1,7 @@
 import time
 
+# pip install pytest-xdist
+# then
 # pytest tests\test_parallel.py -s -v -n8
 # or
 # pytest tests\test_parallel.py -s -v -nauto
